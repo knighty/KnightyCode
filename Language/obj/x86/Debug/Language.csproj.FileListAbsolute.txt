@@ -1,0 +1,12 @@
+C:\UniWork\LP&T\Language\Language\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\UniWork\LP&T\Language\Language\bin\Debug\Language.exe.config
+C:\UniWork\LP&T\Language\Language\bin\Debug\Language.exe
+C:\UniWork\LP&T\Language\Language\bin\Debug\Language.pdb
+C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr3.Runtime.Debug.dll
+C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr3.Runtime.dll
+C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr3.Runtime.JavaExtensions.dll
+C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr4.StringTemplate.dll
+C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr4.StringTemplate.Visualizer.dll
+C:\UniWork\LP&T\Language\Language\bin\Debug\AntlrBuildTask.dll
+C:\UniWork\LP&T\Language\Language\obj\x86\Debug\Language.exe
+C:\UniWork\LP&T\Language\Language\obj\x86\Debug\Language.pdb
