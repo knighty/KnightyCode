@@ -10,3 +10,7 @@ C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr3.Runtime.JavaExtensions.dll
 C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr4.StringTemplate.dll
 C:\UniWork\LP&T\Language\Language\bin\Debug\Antlr4.StringTemplate.Visualizer.dll
 C:\UniWork\LP&T\Language\Language\bin\Debug\AntlrBuildTask.dll
+C:\UniWork\LP&T\Language\Language\obj\x86\Debug\KnightyCode.CodeEditor.resources
+C:\UniWork\LP&T\Language\Language\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\UniWork\LP&T\Language\Language\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\UniWork\LP&T\Language\Language\obj\x86\Debug\KnightyCode.Properties.Resources.resources

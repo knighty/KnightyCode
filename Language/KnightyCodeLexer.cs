@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4.1.9004 KnightyCode.g 2012-04-30 23:05:36
+// $ANTLR 3.4.1.9004 KnightyCode.g 2012-05-01 13:49:51
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -31,17 +31,23 @@ namespace  KnightyCode
 public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 {
 	public const int EOF=-1;
-	public const int Number=4;
-	public const int Print=5;
-	public const int ROOT=6;
-	public const int Space=7;
-	public const int UNARY_MIN=8;
-	public const int T__9=9;
-	public const int T__10=10;
-	public const int T__11=11;
+	public const int Else=4;
+	public const int If=5;
+	public const int Number=6;
+	public const int Print=7;
+	public const int ROOT=8;
+	public const int Space=9;
+	public const int UNARY_MIN=10;
+	public const int While=11;
 	public const int T__12=12;
 	public const int T__13=13;
 	public const int T__14=14;
+	public const int T__15=15;
+	public const int T__16=16;
+	public const int T__17=17;
+	public const int T__18=18;
+	public const int T__19=19;
+	public const int T__20=20;
 
     // delegates
     // delegators
@@ -69,25 +75,25 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 	partial void EnterRule(string ruleName, int ruleIndex);
 	partial void LeaveRule(string ruleName, int ruleIndex);
 
-	partial void EnterRule_T__9();
-	partial void LeaveRule_T__9();
+	partial void EnterRule_T__12();
+	partial void LeaveRule_T__12();
 
-	// $ANTLR start "T__9"
-	[GrammarRule("T__9")]
-	private void mT__9()
+	// $ANTLR start "T__12"
+	[GrammarRule("T__12")]
+	private void mT__12()
 	{
-		EnterRule_T__9();
-		EnterRule("T__9", 1);
-		TraceIn("T__9", 1);
+		EnterRule_T__12();
+		EnterRule("T__12", 1);
+		TraceIn("T__12", 1);
 		try
 		{
-			int _type = T__9;
+			int _type = T__12;
 			int _channel = DefaultTokenChannel;
-			// KnightyCode.g:9:6: ( '(' )
+			// KnightyCode.g:9:7: ( '(' )
 			DebugEnterAlt(1);
-			// KnightyCode.g:9:8: '('
+			// KnightyCode.g:9:9: '('
 			{
-			DebugLocation(9, 8);
+			DebugLocation(9, 9);
 			Match('('); 
 
 			}
@@ -97,26 +103,26 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__9", 1);
-			LeaveRule("T__9", 1);
-			LeaveRule_T__9();
+			TraceOut("T__12", 1);
+			LeaveRule("T__12", 1);
+			LeaveRule_T__12();
 		}
 	}
-	// $ANTLR end "T__9"
+	// $ANTLR end "T__12"
 
-	partial void EnterRule_T__10();
-	partial void LeaveRule_T__10();
+	partial void EnterRule_T__13();
+	partial void LeaveRule_T__13();
 
-	// $ANTLR start "T__10"
-	[GrammarRule("T__10")]
-	private void mT__10()
+	// $ANTLR start "T__13"
+	[GrammarRule("T__13")]
+	private void mT__13()
 	{
-		EnterRule_T__10();
-		EnterRule("T__10", 2);
-		TraceIn("T__10", 2);
+		EnterRule_T__13();
+		EnterRule("T__13", 2);
+		TraceIn("T__13", 2);
 		try
 		{
-			int _type = T__10;
+			int _type = T__13;
 			int _channel = DefaultTokenChannel;
 			// KnightyCode.g:10:7: ( ')' )
 			DebugEnterAlt(1);
@@ -132,26 +138,26 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__10", 2);
-			LeaveRule("T__10", 2);
-			LeaveRule_T__10();
+			TraceOut("T__13", 2);
+			LeaveRule("T__13", 2);
+			LeaveRule_T__13();
 		}
 	}
-	// $ANTLR end "T__10"
+	// $ANTLR end "T__13"
 
-	partial void EnterRule_T__11();
-	partial void LeaveRule_T__11();
+	partial void EnterRule_T__14();
+	partial void LeaveRule_T__14();
 
-	// $ANTLR start "T__11"
-	[GrammarRule("T__11")]
-	private void mT__11()
+	// $ANTLR start "T__14"
+	[GrammarRule("T__14")]
+	private void mT__14()
 	{
-		EnterRule_T__11();
-		EnterRule("T__11", 3);
-		TraceIn("T__11", 3);
+		EnterRule_T__14();
+		EnterRule("T__14", 3);
+		TraceIn("T__14", 3);
 		try
 		{
-			int _type = T__11;
+			int _type = T__14;
 			int _channel = DefaultTokenChannel;
 			// KnightyCode.g:11:7: ( '*' )
 			DebugEnterAlt(1);
@@ -167,26 +173,26 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__11", 3);
-			LeaveRule("T__11", 3);
-			LeaveRule_T__11();
+			TraceOut("T__14", 3);
+			LeaveRule("T__14", 3);
+			LeaveRule_T__14();
 		}
 	}
-	// $ANTLR end "T__11"
+	// $ANTLR end "T__14"
 
-	partial void EnterRule_T__12();
-	partial void LeaveRule_T__12();
+	partial void EnterRule_T__15();
+	partial void LeaveRule_T__15();
 
-	// $ANTLR start "T__12"
-	[GrammarRule("T__12")]
-	private void mT__12()
+	// $ANTLR start "T__15"
+	[GrammarRule("T__15")]
+	private void mT__15()
 	{
-		EnterRule_T__12();
-		EnterRule("T__12", 4);
-		TraceIn("T__12", 4);
+		EnterRule_T__15();
+		EnterRule("T__15", 4);
+		TraceIn("T__15", 4);
 		try
 		{
-			int _type = T__12;
+			int _type = T__15;
 			int _channel = DefaultTokenChannel;
 			// KnightyCode.g:12:7: ( '+' )
 			DebugEnterAlt(1);
@@ -202,26 +208,26 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__12", 4);
-			LeaveRule("T__12", 4);
-			LeaveRule_T__12();
+			TraceOut("T__15", 4);
+			LeaveRule("T__15", 4);
+			LeaveRule_T__15();
 		}
 	}
-	// $ANTLR end "T__12"
+	// $ANTLR end "T__15"
 
-	partial void EnterRule_T__13();
-	partial void LeaveRule_T__13();
+	partial void EnterRule_T__16();
+	partial void LeaveRule_T__16();
 
-	// $ANTLR start "T__13"
-	[GrammarRule("T__13")]
-	private void mT__13()
+	// $ANTLR start "T__16"
+	[GrammarRule("T__16")]
+	private void mT__16()
 	{
-		EnterRule_T__13();
-		EnterRule("T__13", 5);
-		TraceIn("T__13", 5);
+		EnterRule_T__16();
+		EnterRule("T__16", 5);
+		TraceIn("T__16", 5);
 		try
 		{
-			int _type = T__13;
+			int _type = T__16;
 			int _channel = DefaultTokenChannel;
 			// KnightyCode.g:13:7: ( '-' )
 			DebugEnterAlt(1);
@@ -237,26 +243,26 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__13", 5);
-			LeaveRule("T__13", 5);
-			LeaveRule_T__13();
+			TraceOut("T__16", 5);
+			LeaveRule("T__16", 5);
+			LeaveRule_T__16();
 		}
 	}
-	// $ANTLR end "T__13"
+	// $ANTLR end "T__16"
 
-	partial void EnterRule_T__14();
-	partial void LeaveRule_T__14();
+	partial void EnterRule_T__17();
+	partial void LeaveRule_T__17();
 
-	// $ANTLR start "T__14"
-	[GrammarRule("T__14")]
-	private void mT__14()
+	// $ANTLR start "T__17"
+	[GrammarRule("T__17")]
+	private void mT__17()
 	{
-		EnterRule_T__14();
-		EnterRule("T__14", 6);
-		TraceIn("T__14", 6);
+		EnterRule_T__17();
+		EnterRule("T__17", 6);
+		TraceIn("T__17", 6);
 		try
 		{
-			int _type = T__14;
+			int _type = T__17;
 			int _channel = DefaultTokenChannel;
 			// KnightyCode.g:14:7: ( '/' )
 			DebugEnterAlt(1);
@@ -272,12 +278,117 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__14", 6);
-			LeaveRule("T__14", 6);
-			LeaveRule_T__14();
+			TraceOut("T__17", 6);
+			LeaveRule("T__17", 6);
+			LeaveRule_T__17();
 		}
 	}
-	// $ANTLR end "T__14"
+	// $ANTLR end "T__17"
+
+	partial void EnterRule_T__18();
+	partial void LeaveRule_T__18();
+
+	// $ANTLR start "T__18"
+	[GrammarRule("T__18")]
+	private void mT__18()
+	{
+		EnterRule_T__18();
+		EnterRule("T__18", 7);
+		TraceIn("T__18", 7);
+		try
+		{
+			int _type = T__18;
+			int _channel = DefaultTokenChannel;
+			// KnightyCode.g:15:7: ( ';' )
+			DebugEnterAlt(1);
+			// KnightyCode.g:15:9: ';'
+			{
+			DebugLocation(15, 9);
+			Match(';'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__18", 7);
+			LeaveRule("T__18", 7);
+			LeaveRule_T__18();
+		}
+	}
+	// $ANTLR end "T__18"
+
+	partial void EnterRule_T__19();
+	partial void LeaveRule_T__19();
+
+	// $ANTLR start "T__19"
+	[GrammarRule("T__19")]
+	private void mT__19()
+	{
+		EnterRule_T__19();
+		EnterRule("T__19", 8);
+		TraceIn("T__19", 8);
+		try
+		{
+			int _type = T__19;
+			int _channel = DefaultTokenChannel;
+			// KnightyCode.g:16:7: ( '{' )
+			DebugEnterAlt(1);
+			// KnightyCode.g:16:9: '{'
+			{
+			DebugLocation(16, 9);
+			Match('{'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__19", 8);
+			LeaveRule("T__19", 8);
+			LeaveRule_T__19();
+		}
+	}
+	// $ANTLR end "T__19"
+
+	partial void EnterRule_T__20();
+	partial void LeaveRule_T__20();
+
+	// $ANTLR start "T__20"
+	[GrammarRule("T__20")]
+	private void mT__20()
+	{
+		EnterRule_T__20();
+		EnterRule("T__20", 9);
+		TraceIn("T__20", 9);
+		try
+		{
+			int _type = T__20;
+			int _channel = DefaultTokenChannel;
+			// KnightyCode.g:17:7: ( '}' )
+			DebugEnterAlt(1);
+			// KnightyCode.g:17:9: '}'
+			{
+			DebugLocation(17, 9);
+			Match('}'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__20", 9);
+			LeaveRule("T__20", 9);
+			LeaveRule_T__20();
+		}
+	}
+	// $ANTLR end "T__20"
 
 	partial void EnterRule_Number();
 	partial void LeaveRule_Number();
@@ -287,18 +398,18 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 	private void mNumber()
 	{
 		EnterRule_Number();
-		EnterRule("Number", 7);
-		TraceIn("Number", 7);
+		EnterRule("Number", 10);
+		TraceIn("Number", 10);
 		try
 		{
 			int _type = Number;
 			int _channel = DefaultTokenChannel;
-			// KnightyCode.g:79:3: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+			// KnightyCode.g:94:3: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
 			DebugEnterAlt(1);
-			// KnightyCode.g:79:6: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+			// KnightyCode.g:94:6: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
 			{
-			DebugLocation(79, 6);
-			// KnightyCode.g:79:6: ( '0' .. '9' )+
+			DebugLocation(94, 6);
+			// KnightyCode.g:94:6: ( '0' .. '9' )+
 			int cnt1=0;
 			try { DebugEnterSubRule(1);
 			while (true)
@@ -320,7 +431,7 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// KnightyCode.g:
 					{
-					DebugLocation(79, 6);
+					DebugLocation(94, 6);
 					input.Consume();
 
 
@@ -342,8 +453,8 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(1); }
 
-			DebugLocation(79, 18);
-			// KnightyCode.g:79:18: ( '.' ( '0' .. '9' )+ )?
+			DebugLocation(94, 18);
+			// KnightyCode.g:94:18: ( '.' ( '0' .. '9' )+ )?
 			int alt3=2;
 			try { DebugEnterSubRule(3);
 			try { DebugEnterDecision(3, false);
@@ -358,12 +469,12 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// KnightyCode.g:79:19: '.' ( '0' .. '9' )+
+				// KnightyCode.g:94:19: '.' ( '0' .. '9' )+
 				{
-				DebugLocation(79, 19);
+				DebugLocation(94, 19);
 				Match('.'); 
-				DebugLocation(79, 23);
-				// KnightyCode.g:79:23: ( '0' .. '9' )+
+				DebugLocation(94, 23);
+				// KnightyCode.g:94:23: ( '0' .. '9' )+
 				int cnt2=0;
 				try { DebugEnterSubRule(2);
 				while (true)
@@ -385,7 +496,7 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// KnightyCode.g:
 						{
-						DebugLocation(79, 23);
+						DebugLocation(94, 23);
 						input.Consume();
 
 
@@ -422,12 +533,144 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("Number", 7);
-			LeaveRule("Number", 7);
+			TraceOut("Number", 10);
+			LeaveRule("Number", 10);
 			LeaveRule_Number();
 		}
 	}
 	// $ANTLR end "Number"
+
+	partial void EnterRule_If();
+	partial void LeaveRule_If();
+
+	// $ANTLR start "If"
+	[GrammarRule("If")]
+	private void mIf()
+	{
+		EnterRule_If();
+		EnterRule("If", 11);
+		TraceIn("If", 11);
+		try
+		{
+			int _type = If;
+			int _channel = DefaultTokenChannel;
+			// KnightyCode.g:98:3: ( ( 'if' ) )
+			DebugEnterAlt(1);
+			// KnightyCode.g:98:6: ( 'if' )
+			{
+			DebugLocation(98, 6);
+			// KnightyCode.g:98:6: ( 'if' )
+			DebugEnterAlt(1);
+			// KnightyCode.g:98:7: 'if'
+			{
+			DebugLocation(98, 7);
+			Match("if"); 
+
+
+			}
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("If", 11);
+			LeaveRule("If", 11);
+			LeaveRule_If();
+		}
+	}
+	// $ANTLR end "If"
+
+	partial void EnterRule_Else();
+	partial void LeaveRule_Else();
+
+	// $ANTLR start "Else"
+	[GrammarRule("Else")]
+	private void mElse()
+	{
+		EnterRule_Else();
+		EnterRule("Else", 12);
+		TraceIn("Else", 12);
+		try
+		{
+			int _type = Else;
+			int _channel = DefaultTokenChannel;
+			// KnightyCode.g:102:3: ( ( 'else' ) )
+			DebugEnterAlt(1);
+			// KnightyCode.g:102:3: ( 'else' )
+			{
+			DebugLocation(102, 3);
+			// KnightyCode.g:102:3: ( 'else' )
+			DebugEnterAlt(1);
+			// KnightyCode.g:102:4: 'else'
+			{
+			DebugLocation(102, 4);
+			Match("else"); 
+
+
+			}
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("Else", 12);
+			LeaveRule("Else", 12);
+			LeaveRule_Else();
+		}
+	}
+	// $ANTLR end "Else"
+
+	partial void EnterRule_While();
+	partial void LeaveRule_While();
+
+	// $ANTLR start "While"
+	[GrammarRule("While")]
+	private void mWhile()
+	{
+		EnterRule_While();
+		EnterRule("While", 13);
+		TraceIn("While", 13);
+		try
+		{
+			int _type = While;
+			int _channel = DefaultTokenChannel;
+			// KnightyCode.g:106:3: ( ( 'while' ) )
+			DebugEnterAlt(1);
+			// KnightyCode.g:106:6: ( 'while' )
+			{
+			DebugLocation(106, 6);
+			// KnightyCode.g:106:6: ( 'while' )
+			DebugEnterAlt(1);
+			// KnightyCode.g:106:7: 'while'
+			{
+			DebugLocation(106, 7);
+			Match("while"); 
+
+
+			}
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("While", 13);
+			LeaveRule("While", 13);
+			LeaveRule_While();
+		}
+	}
+	// $ANTLR end "While"
 
 	partial void EnterRule_Space();
 	partial void LeaveRule_Space();
@@ -437,17 +680,17 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 	private void mSpace()
 	{
 		EnterRule_Space();
-		EnterRule("Space", 8);
-		TraceIn("Space", 8);
+		EnterRule("Space", 14);
+		TraceIn("Space", 14);
 		try
 		{
 			int _type = Space;
 			int _channel = DefaultTokenChannel;
-			// KnightyCode.g:83:3: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+			// KnightyCode.g:110:3: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
 			DebugEnterAlt(1);
-			// KnightyCode.g:83:6: ( ' ' | '\\t' | '\\r' | '\\n' )
+			// KnightyCode.g:110:6: ( ' ' | '\\t' | '\\r' | '\\n' )
 			{
-			DebugLocation(83, 6);
+			DebugLocation(110, 6);
 			if ((input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ')
 			{
 				input.Consume();
@@ -460,7 +703,7 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 				throw mse;
 			}
 
-			DebugLocation(83, 32);
+			DebugLocation(110, 32);
 			Skip();
 
 			}
@@ -470,8 +713,8 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("Space", 8);
-			LeaveRule("Space", 8);
+			TraceOut("Space", 14);
+			LeaveRule("Space", 14);
 			LeaveRule_Space();
 		}
 	}
@@ -485,22 +728,22 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 	private void mPrint()
 	{
 		EnterRule_Print();
-		EnterRule("Print", 9);
-		TraceIn("Print", 9);
+		EnterRule("Print", 15);
+		TraceIn("Print", 15);
 		try
 		{
 			int _type = Print;
 			int _channel = DefaultTokenChannel;
-			// KnightyCode.g:87:3: ( ( 'print' ) )
+			// KnightyCode.g:114:3: ( ( 'print' ) )
 			DebugEnterAlt(1);
-			// KnightyCode.g:87:3: ( 'print' )
+			// KnightyCode.g:114:3: ( 'print' )
 			{
-			DebugLocation(87, 3);
-			// KnightyCode.g:87:3: ( 'print' )
+			DebugLocation(114, 3);
+			// KnightyCode.g:114:3: ( 'print' )
 			DebugEnterAlt(1);
-			// KnightyCode.g:87:4: 'print'
+			// KnightyCode.g:114:4: 'print'
 			{
-			DebugLocation(87, 4);
+			DebugLocation(114, 4);
 			Match("print"); 
 
 
@@ -514,8 +757,8 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("Print", 9);
-			LeaveRule("Print", 9);
+			TraceOut("Print", 15);
+			LeaveRule("Print", 15);
 			LeaveRule_Print();
 		}
 	}
@@ -523,8 +766,8 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 
 	public override void mTokens()
 	{
-		// KnightyCode.g:1:8: ( T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | Number | Space | Print )
-		int alt4=9;
+		// KnightyCode.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | Number | If | Else | While | Space | Print )
+		int alt4=15;
 		try { DebugEnterDecision(4, false);
 		switch (input.LA(1))
 		{
@@ -558,6 +801,21 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 			alt4 = 6;
 			}
 			break;
+		case ';':
+			{
+			alt4 = 7;
+			}
+			break;
+		case '{':
+			{
+			alt4 = 8;
+			}
+			break;
+		case '}':
+			{
+			alt4 = 9;
+			}
+			break;
 		case '0':
 		case '1':
 		case '2':
@@ -569,7 +827,22 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		case '8':
 		case '9':
 			{
-			alt4 = 7;
+			alt4 = 10;
+			}
+			break;
+		case 'i':
+			{
+			alt4 = 11;
+			}
+			break;
+		case 'e':
+			{
+			alt4 = 12;
+			}
+			break;
+		case 'w':
+			{
+			alt4 = 13;
 			}
 			break;
 		case '\t':
@@ -577,12 +850,12 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		case '\r':
 		case ' ':
 			{
-			alt4 = 8;
+			alt4 = 14;
 			}
 			break;
 		case 'p':
 			{
-			alt4 = 9;
+			alt4 = 15;
 			}
 			break;
 		default:
@@ -598,81 +871,135 @@ public partial class KnightyCodeLexer : Antlr.Runtime.Lexer
 		{
 		case 1:
 			DebugEnterAlt(1);
-			// KnightyCode.g:1:10: T__9
+			// KnightyCode.g:1:10: T__12
 			{
 			DebugLocation(1, 10);
-			mT__9(); 
+			mT__12(); 
 
 			}
 			break;
 		case 2:
 			DebugEnterAlt(2);
-			// KnightyCode.g:1:15: T__10
+			// KnightyCode.g:1:16: T__13
 			{
-			DebugLocation(1, 15);
-			mT__10(); 
+			DebugLocation(1, 16);
+			mT__13(); 
 
 			}
 			break;
 		case 3:
 			DebugEnterAlt(3);
-			// KnightyCode.g:1:21: T__11
+			// KnightyCode.g:1:22: T__14
 			{
-			DebugLocation(1, 21);
-			mT__11(); 
+			DebugLocation(1, 22);
+			mT__14(); 
 
 			}
 			break;
 		case 4:
 			DebugEnterAlt(4);
-			// KnightyCode.g:1:27: T__12
+			// KnightyCode.g:1:28: T__15
 			{
-			DebugLocation(1, 27);
-			mT__12(); 
+			DebugLocation(1, 28);
+			mT__15(); 
 
 			}
 			break;
 		case 5:
 			DebugEnterAlt(5);
-			// KnightyCode.g:1:33: T__13
+			// KnightyCode.g:1:34: T__16
 			{
-			DebugLocation(1, 33);
-			mT__13(); 
+			DebugLocation(1, 34);
+			mT__16(); 
 
 			}
 			break;
 		case 6:
 			DebugEnterAlt(6);
-			// KnightyCode.g:1:39: T__14
+			// KnightyCode.g:1:40: T__17
 			{
-			DebugLocation(1, 39);
-			mT__14(); 
+			DebugLocation(1, 40);
+			mT__17(); 
 
 			}
 			break;
 		case 7:
 			DebugEnterAlt(7);
-			// KnightyCode.g:1:45: Number
+			// KnightyCode.g:1:46: T__18
 			{
-			DebugLocation(1, 45);
-			mNumber(); 
+			DebugLocation(1, 46);
+			mT__18(); 
 
 			}
 			break;
 		case 8:
 			DebugEnterAlt(8);
-			// KnightyCode.g:1:52: Space
+			// KnightyCode.g:1:52: T__19
 			{
 			DebugLocation(1, 52);
-			mSpace(); 
+			mT__19(); 
 
 			}
 			break;
 		case 9:
 			DebugEnterAlt(9);
-			// KnightyCode.g:1:58: Print
+			// KnightyCode.g:1:58: T__20
 			{
 			DebugLocation(1, 58);
+			mT__20(); 
+
+			}
+			break;
+		case 10:
+			DebugEnterAlt(10);
+			// KnightyCode.g:1:64: Number
+			{
+			DebugLocation(1, 64);
+			mNumber(); 
+
+			}
+			break;
+		case 11:
+			DebugEnterAlt(11);
+			// KnightyCode.g:1:71: If
+			{
+			DebugLocation(1, 71);
+			mIf(); 
+
+			}
+			break;
+		case 12:
+			DebugEnterAlt(12);
+			// KnightyCode.g:1:74: Else
+			{
+			DebugLocation(1, 74);
+			mElse(); 
+
+			}
+			break;
+		case 13:
+			DebugEnterAlt(13);
+			// KnightyCode.g:1:79: While
+			{
+			DebugLocation(1, 79);
+			mWhile(); 
+
+			}
+			break;
+		case 14:
+			DebugEnterAlt(14);
+			// KnightyCode.g:1:85: Space
+			{
+			DebugLocation(1, 85);
+			mSpace(); 
+
+			}
+			break;
+		case 15:
+			DebugEnterAlt(15);
+			// KnightyCode.g:1:91: Print
+			{
+			DebugLocation(1, 91);
 			mPrint(); 
 
 			}

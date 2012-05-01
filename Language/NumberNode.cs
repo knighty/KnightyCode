@@ -14,7 +14,7 @@ namespace KnightyCode
 			mValue = new KnightyCodeObject( );
 			double r;
 			double.TryParse( val, out r );
-			mValue.Value = r;
+			mValue.AsDouble = r;
 		}
 		
 		public override KnightyCodeObject Evaluate( Context context )

@@ -51,22 +51,22 @@ namespace KnightyCode
 
 			if ( mOperator == Operator.Add )
 			{
-				obj.Value = mLHS.Evaluate( context ).AsDouble + mRHS.Evaluate( context ).AsDouble;
+				obj.AsDouble = mLHS.Evaluate( context ).AsDouble + mRHS.Evaluate( context ).AsDouble;
 			}
 
 			if ( mOperator == Operator.Subtract )
 			{
-				obj.Value = mLHS.Evaluate( context ).AsDouble - mRHS.Evaluate( context ).AsDouble;
+				obj.AsDouble = mLHS.Evaluate( context ).AsDouble - mRHS.Evaluate( context ).AsDouble;
 			}
 
 			if ( mOperator == Operator.Multiply )
 			{
-				obj.Value = mLHS.Evaluate( context ).AsDouble * mRHS.Evaluate( context ).AsDouble;
+				obj.AsDouble = mLHS.Evaluate( context ).AsDouble * mRHS.Evaluate( context ).AsDouble;
 			}
 
 			if ( mOperator == Operator.Divide )
 			{
-				obj.Value = mLHS.Evaluate( context ).AsDouble / mRHS.Evaluate( context ).AsDouble;
+				obj.AsDouble = mLHS.Evaluate( context ).AsDouble / mRHS.Evaluate( context ).AsDouble;
 			}
 
 			return obj;

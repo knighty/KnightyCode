@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4.1.9004 KnightyCode.g 2012-04-30 23:05:35
+// $ANTLR 3.4.1.9004 KnightyCode.g 2012-05-01 13:49:51
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -27,10 +27,6 @@ using System.Collections.Generic;
 using Antlr.Runtime;
 using Antlr.Runtime.Misc;
 
-
-using Antlr.Runtime.Tree;
-using RewriteRuleITokenStream = Antlr.Runtime.Tree.RewriteRuleTokenStream;
-
 namespace  KnightyCode 
 {
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "3.4.1.9004")]
@@ -38,20 +34,26 @@ namespace  KnightyCode
 public partial class KnightyCodeParser : Antlr.Runtime.Parser
 {
 	internal static readonly string[] tokenNames = new string[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "Number", "Print", "ROOT", "Space", "UNARY_MIN", "'('", "')'", "'*'", "'+'", "'-'", "'/'"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "Else", "If", "Number", "Print", "ROOT", "Space", "UNARY_MIN", "While", "'('", "')'", "'*'", "'+'", "'-'", "'/'", "';'", "'{'", "'}'"
 	};
 	public const int EOF=-1;
-	public const int Number=4;
-	public const int Print=5;
-	public const int ROOT=6;
-	public const int Space=7;
-	public const int UNARY_MIN=8;
-	public const int T__9=9;
-	public const int T__10=10;
-	public const int T__11=11;
+	public const int Else=4;
+	public const int If=5;
+	public const int Number=6;
+	public const int Print=7;
+	public const int ROOT=8;
+	public const int Space=9;
+	public const int UNARY_MIN=10;
+	public const int While=11;
 	public const int T__12=12;
 	public const int T__13=13;
 	public const int T__14=14;
+	public const int T__15=15;
+	public const int T__16=16;
+	public const int T__17=17;
+	public const int T__18=18;
+	public const int T__19=19;
+	public const int T__20=20;
 
 	public KnightyCodeParser(ITokenStream input)
 		: this(input, new RecognizerSharedState())
@@ -60,42 +62,17 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 	public KnightyCodeParser(ITokenStream input, RecognizerSharedState state)
 		: base(input, state)
 	{
-		ITreeAdaptor treeAdaptor = default(ITreeAdaptor);
-		CreateTreeAdaptor(ref treeAdaptor);
-		TreeAdaptor = treeAdaptor ?? new CommonTreeAdaptor();
 		OnCreated();
-	}
-	// Implement this function in your helper file to use a custom tree adaptor
-	partial void CreateTreeAdaptor(ref ITreeAdaptor adaptor);
-
-	private ITreeAdaptor adaptor;
-
-	public ITreeAdaptor TreeAdaptor
-	{
-		get
-		{
-			return adaptor;
-		}
-
-		set
-		{
-			this.adaptor = value;
-		}
 	}
 
 	public override string[] TokenNames { get { return KnightyCodeParser.tokenNames; } }
 	public override string GrammarFileName { get { return "KnightyCode.g"; } }
 
 
-		public static void Run( string code )
+		public void Run( string code, Context context )
 		{
-			KnightyCodeLexer lex = new KnightyCodeLexer( new ANTLRStringStream( code ));
-	        CommonTokenStream tokens = new CommonTokenStream(lex);
-	 
-	        KnightyCodeParser parser = new KnightyCodeParser(tokens);
-	 
 	        try {
-	            parser.parse().node.Evaluate( null );
+	            parse().Evaluate( context );
 	        } catch (RecognitionException e)  {
 	            Console.Error.WriteLine(e.StackTrace);
 	        }
@@ -107,75 +84,49 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 	partial void LeaveRule(string ruleName, int ruleIndex);
 
 	#region Rules
-	private sealed partial class parse_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public parse_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
-
 	partial void EnterRule_parse();
 	partial void LeaveRule_parse();
 	// $ANTLR start "parse"
-	// KnightyCode.g:37:1: parse returns [Node node] : exp EOF ;
+	// KnightyCode.g:31:1: parse returns [Node node] : exp EOF ;
 	[GrammarRule("parse")]
-	private KnightyCodeParser.parse_return parse()
+	private Node parse()
 	{
 		EnterRule_parse();
 		EnterRule("parse", 1);
 		TraceIn("parse", 1);
-		KnightyCodeParser.parse_return retval = new KnightyCodeParser.parse_return(this);
-		retval.Start = (IToken)input.LT(1);
+		Node node = default(Node);
 
-		object root_0 = default(object);
 
-		IToken EOF2 = default(IToken);
-		KnightyCodeParser.exp_return exp1 = default(KnightyCodeParser.exp_return);
+		Node exp1 = default(Node);
 
-		object EOF2_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "parse");
-		DebugLocation(37, 2);
+		DebugLocation(31, 2);
 		try
 		{
-			// KnightyCode.g:38:3: ( exp EOF )
+			// KnightyCode.g:32:3: ( exp EOF )
 			DebugEnterAlt(1);
-			// KnightyCode.g:38:6: exp EOF
+			// KnightyCode.g:32:6: exp EOF
 			{
-			root_0 = (object)adaptor.Nil();
-
-			DebugLocation(38, 6);
-			PushFollow(Follow._exp_in_parse92);
+			DebugLocation(32, 6);
+			PushFollow(Follow._exp_in_parse84);
 			exp1=exp();
 			PopFollow();
-			if (state.failed) return retval;
-			if (state.backtracking == 0) adaptor.AddChild(root_0, exp1.Tree);
-			DebugLocation(38, 10);
-			EOF2=(IToken)Match(input,EOF,Follow._EOF_in_parse94); if (state.failed) return retval;
-			if (state.backtracking == 0) {
-			EOF2_tree = (object)adaptor.Create(EOF2);
-			adaptor.AddChild(root_0, EOF2_tree);
-			}
-			DebugLocation(38, 14);
+			if (state.failed) return node;
+			DebugLocation(32, 10);
+			Match(input,EOF,Follow._EOF_in_parse86); if (state.failed) return node;
+			DebugLocation(32, 14);
 			if (state.backtracking == 0)
 			{
-				 retval.node = (exp1!=null?exp1.node:default(Node)); 
+				 node = exp1; 
 			}
 
 			}
 
-			retval.Stop = (IToken)input.LT(-1);
-
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-			}
 		}
 		catch (RecognitionException re)
 		{
 			ReportError(re);
 			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
 		}
 		finally
 		{
@@ -183,74 +134,279 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 			LeaveRule("parse", 1);
 			LeaveRule_parse();
 		}
-		DebugLocation(39, 2);
+		DebugLocation(33, 2);
 		} finally { DebugExitRule(GrammarFileName, "parse"); }
-		return retval;
+		return node;
 
 	}
 	// $ANTLR end "parse"
 
-	private sealed partial class exp_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public exp_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
-
 	partial void EnterRule_exp();
 	partial void LeaveRule_exp();
 	// $ANTLR start "exp"
-	// KnightyCode.g:41:1: exp returns [Node node] : printExp ;
+	// KnightyCode.g:35:1: exp returns [Node node] : ( printExp |a= printExp ';' ( Space )? (b= printExp ';' )* );
 	[GrammarRule("exp")]
-	private KnightyCodeParser.exp_return exp()
+	private Node exp()
 	{
 		EnterRule_exp();
 		EnterRule("exp", 2);
 		TraceIn("exp", 2);
-		KnightyCodeParser.exp_return retval = new KnightyCodeParser.exp_return(this);
-		retval.Start = (IToken)input.LT(1);
+		Node node = default(Node);
 
-		object root_0 = default(object);
 
-		KnightyCodeParser.printExp_return printExp3 = default(KnightyCodeParser.printExp_return);
+		Node a = default(Node);
+		Node b = default(Node);
+		Node printExp2 = default(Node);
 
 		try { DebugEnterRule(GrammarFileName, "exp");
-		DebugLocation(41, 2);
+		DebugLocation(35, 2);
 		try
 		{
-			// KnightyCode.g:42:3: ( printExp )
-			DebugEnterAlt(1);
-			// KnightyCode.g:42:6: printExp
+			// KnightyCode.g:36:3: ( printExp |a= printExp ';' ( Space )? (b= printExp ';' )* )
+			int alt3=2;
+			try { DebugEnterDecision(3, false);
+			switch (input.LA(1))
 			{
-			root_0 = (object)adaptor.Nil();
+			case Print:
+				{
+				int LA3_2 = input.LA(2);
 
-			DebugLocation(42, 6);
-			PushFollow(Follow._printExp_in_exp114);
-			printExp3=printExp();
-			PopFollow();
-			if (state.failed) return retval;
-			if (state.backtracking == 0) adaptor.AddChild(root_0, printExp3.Tree);
-			DebugLocation(42, 15);
-			if (state.backtracking == 0)
-			{
-				 retval.node = (printExp3!=null?printExp3.node:default(Node)); 
+				if ((EvaluatePredicate(synpred1_KnightyCode_fragment)))
+				{
+					alt3 = 1;
+				}
+				else if ((true))
+				{
+					alt3 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 3, 1, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case Number:
+				{
+				int LA3_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred1_KnightyCode_fragment)))
+				{
+					alt3 = 1;
+				}
+				else if ((true))
+				{
+					alt3 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 3, 2, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case If:
+				{
+				int LA3_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred1_KnightyCode_fragment)))
+				{
+					alt3 = 1;
+				}
+				else if ((true))
+				{
+					alt3 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 3, 3, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case While:
+				{
+				int LA3_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred1_KnightyCode_fragment)))
+				{
+					alt3 = 1;
+				}
+				else if ((true))
+				{
+					alt3 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 3, 4, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case 12:
+				{
+				int LA3_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred1_KnightyCode_fragment)))
+				{
+					alt3 = 1;
+				}
+				else if ((true))
+				{
+					alt3 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 3, 5, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			default:
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 3, 0, input, 1);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
 			}
 
-			}
+			} finally { DebugExitDecision(3); }
+			switch (alt3)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// KnightyCode.g:37:3: printExp
+				{
+				DebugLocation(37, 3);
+				PushFollow(Follow._printExp_in_exp110);
+				printExp2=printExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(37, 12);
+				if (state.backtracking == 0)
+				{
+					 node = printExp2; 
+				}
 
-			retval.Stop = (IToken)input.LT(-1);
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// KnightyCode.g:38:5: a= printExp ';' ( Space )? (b= printExp ';' )*
+				{
+				DebugLocation(38, 5);
+				if (state.backtracking == 0)
+				{
+					 node = new CodeBodyNode( ); 
+				}
+				DebugLocation(39, 3);
+				PushFollow(Follow._printExp_in_exp123);
+				a=printExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(39, 13);
+				if (state.backtracking == 0)
+				{
+					 ( node as CodeBodyNode ).Nodes.Add( a ); 
+				}
+				DebugLocation(39, 65);
+				Match(input,18,Follow._18_in_exp127); if (state.failed) return node;
+				DebugLocation(39, 69);
+				// KnightyCode.g:39:69: ( Space )?
+				int alt1=2;
+				try { DebugEnterSubRule(1);
+				try { DebugEnterDecision(1, false);
+				int LA1_1 = input.LA(1);
 
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+				if ((LA1_1==Space))
+				{
+					alt1 = 1;
+				}
+				} finally { DebugExitDecision(1); }
+				switch (alt1)
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// KnightyCode.g:39:69: Space
+					{
+					DebugLocation(39, 69);
+					Match(input,Space,Follow._Space_in_exp129); if (state.failed) return node;
+
+					}
+					break;
+
+				}
+				} finally { DebugExitSubRule(1); }
+
+				DebugLocation(40, 3);
+				// KnightyCode.g:40:3: (b= printExp ';' )*
+				try { DebugEnterSubRule(2);
+				while (true)
+				{
+					int alt2=2;
+					try { DebugEnterDecision(2, false);
+					int LA2_1 = input.LA(1);
+
+					if (((LA2_1>=If && LA2_1<=Print)||(LA2_1>=While && LA2_1<=12)))
+					{
+						alt2 = 1;
+					}
+
+
+					} finally { DebugExitDecision(2); }
+					switch ( alt2 )
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// KnightyCode.g:40:5: b= printExp ';'
+						{
+						DebugLocation(40, 6);
+						PushFollow(Follow._printExp_in_exp138);
+						b=printExp();
+						PopFollow();
+						if (state.failed) return node;
+						DebugLocation(40, 16);
+						if (state.backtracking == 0)
+						{
+							 ( node as CodeBodyNode ).Nodes.Add( b ); 
+						}
+						DebugLocation(40, 68);
+						Match(input,18,Follow._18_in_exp142); if (state.failed) return node;
+
+						}
+						break;
+
+					default:
+						goto loop2;
+					}
+				}
+
+				loop2:
+					;
+
+				} finally { DebugExitSubRule(2); }
+
+
+				}
+				break;
+
 			}
 		}
 		catch (RecognitionException re)
 		{
 			ReportError(re);
 			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
 		}
 		finally
 		{
@@ -258,632 +414,49 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 			LeaveRule("exp", 2);
 			LeaveRule_exp();
 		}
-		DebugLocation(43, 2);
+		DebugLocation(41, 2);
 		} finally { DebugExitRule(GrammarFileName, "exp"); }
-		return retval;
+		return node;
 
 	}
 	// $ANTLR end "exp"
 
-	private sealed partial class printExp_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public printExp_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
-
 	partial void EnterRule_printExp();
 	partial void LeaveRule_printExp();
 	// $ANTLR start "printExp"
-	// KnightyCode.g:45:1: printExp returns [Node node] : ( Print Space addExp | addExp );
+	// KnightyCode.g:43:1: printExp returns [Node node] : ( Print Space addExp | addExp );
 	[GrammarRule("printExp")]
-	private KnightyCodeParser.printExp_return printExp()
+	private Node printExp()
 	{
 		EnterRule_printExp();
 		EnterRule("printExp", 3);
 		TraceIn("printExp", 3);
-		KnightyCodeParser.printExp_return retval = new KnightyCodeParser.printExp_return(this);
-		retval.Start = (IToken)input.LT(1);
+		Node node = default(Node);
 
-		object root_0 = default(object);
 
-		IToken Print4 = default(IToken);
-		IToken Space5 = default(IToken);
-		KnightyCodeParser.addExp_return addExp6 = default(KnightyCodeParser.addExp_return);
-		KnightyCodeParser.addExp_return addExp7 = default(KnightyCodeParser.addExp_return);
+		Node addExp3 = default(Node);
+		Node addExp4 = default(Node);
 
-		object Print4_tree = default(object);
-		object Space5_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "printExp");
-		DebugLocation(45, 1);
+		DebugLocation(43, 1);
 		try
 		{
-			// KnightyCode.g:46:2: ( Print Space addExp | addExp )
-			int alt1=2;
-			try { DebugEnterDecision(1, false);
-			int LA1_1 = input.LA(1);
-
-			if ((LA1_1==Print))
-			{
-				alt1 = 1;
-			}
-			else if ((LA1_1==Number||LA1_1==9))
-			{
-				alt1 = 2;
-			}
-			else
-			{
-				if (state.backtracking>0) {state.failed=true; return retval;}
-				NoViableAltException nvae = new NoViableAltException("", 1, 0, input, 1);
-				DebugRecognitionException(nvae);
-				throw nvae;
-			}
-			} finally { DebugExitDecision(1); }
-			switch (alt1)
-			{
-			case 1:
-				DebugEnterAlt(1);
-				// KnightyCode.g:46:4: Print Space addExp
-				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(46, 4);
-				Print4=(IToken)Match(input,Print,Follow._Print_in_printExp132); if (state.failed) return retval;
-				if (state.backtracking == 0) {
-				Print4_tree = (object)adaptor.Create(Print4);
-				adaptor.AddChild(root_0, Print4_tree);
-				}
-				DebugLocation(46, 10);
-				Space5=(IToken)Match(input,Space,Follow._Space_in_printExp134); if (state.failed) return retval;
-				if (state.backtracking == 0) {
-				Space5_tree = (object)adaptor.Create(Space5);
-				adaptor.AddChild(root_0, Space5_tree);
-				}
-				DebugLocation(46, 16);
-				PushFollow(Follow._addExp_in_printExp136);
-				addExp6=addExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, addExp6.Tree);
-				DebugLocation(46, 23);
-				if (state.backtracking == 0)
-				{
-					 retval.node = new PrintNode( (addExp6!=null?addExp6.node:default(Node)) ); 
-				}
-
-				}
-				break;
-			case 2:
-				DebugEnterAlt(2);
-				// KnightyCode.g:47:4: addExp
-				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(47, 4);
-				PushFollow(Follow._addExp_in_printExp143);
-				addExp7=addExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, addExp7.Tree);
-				DebugLocation(47, 11);
-				if (state.backtracking == 0)
-				{
-					 retval.node = (addExp7!=null?addExp7.node:default(Node)); 
-				}
-
-				}
-				break;
-
-			}
-			retval.Stop = (IToken)input.LT(-1);
-
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-			}
-		}
-		catch (RecognitionException re)
-		{
-			ReportError(re);
-			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-		}
-		finally
-		{
-			TraceOut("printExp", 3);
-			LeaveRule("printExp", 3);
-			LeaveRule_printExp();
-		}
-		DebugLocation(48, 1);
-		} finally { DebugExitRule(GrammarFileName, "printExp"); }
-		return retval;
-
-	}
-	// $ANTLR end "printExp"
-
-	private sealed partial class addExp_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public addExp_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
-
-	partial void EnterRule_addExp();
-	partial void LeaveRule_addExp();
-	// $ANTLR start "addExp"
-	// KnightyCode.g:50:1: addExp returns [Node node] : (lhs= mulExp op= ( '+' | '-' ) rhs= addExp | mulExp );
-	[GrammarRule("addExp")]
-	private KnightyCodeParser.addExp_return addExp()
-	{
-		EnterRule_addExp();
-		EnterRule("addExp", 4);
-		TraceIn("addExp", 4);
-		KnightyCodeParser.addExp_return retval = new KnightyCodeParser.addExp_return(this);
-		retval.Start = (IToken)input.LT(1);
-
-		object root_0 = default(object);
-
-		IToken op = default(IToken);
-		KnightyCodeParser.mulExp_return lhs = default(KnightyCodeParser.mulExp_return);
-		KnightyCodeParser.addExp_return rhs = default(KnightyCodeParser.addExp_return);
-		KnightyCodeParser.mulExp_return mulExp8 = default(KnightyCodeParser.mulExp_return);
-
-		object op_tree = default(object);
-		try { DebugEnterRule(GrammarFileName, "addExp");
-		DebugLocation(50, 2);
-		try
-		{
-			// KnightyCode.g:51:3: (lhs= mulExp op= ( '+' | '-' ) rhs= addExp | mulExp )
-			int alt2=2;
-			try { DebugEnterDecision(2, false);
-			int LA2_1 = input.LA(1);
-
-			if ((LA2_1==Number))
-			{
-				int LA2_2 = input.LA(2);
-
-				if ((EvaluatePredicate(synpred3_KnightyCode_fragment)))
-				{
-					alt2 = 1;
-				}
-				else if ((true))
-				{
-					alt2 = 2;
-				}
-				else
-				{
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					NoViableAltException nvae = new NoViableAltException("", 2, 1, input, 2);
-					DebugRecognitionException(nvae);
-					throw nvae;
-				}
-			}
-			else if ((LA2_1==9))
-			{
-				int LA2_2 = input.LA(2);
-
-				if ((EvaluatePredicate(synpred3_KnightyCode_fragment)))
-				{
-					alt2 = 1;
-				}
-				else if ((true))
-				{
-					alt2 = 2;
-				}
-				else
-				{
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					NoViableAltException nvae = new NoViableAltException("", 2, 2, input, 2);
-					DebugRecognitionException(nvae);
-					throw nvae;
-				}
-			}
-			else
-			{
-				if (state.backtracking>0) {state.failed=true; return retval;}
-				NoViableAltException nvae = new NoViableAltException("", 2, 0, input, 1);
-				DebugRecognitionException(nvae);
-				throw nvae;
-			}
-			} finally { DebugExitDecision(2); }
-			switch (alt2)
-			{
-			case 1:
-				DebugEnterAlt(1);
-				// KnightyCode.g:51:6: lhs= mulExp op= ( '+' | '-' ) rhs= addExp
-				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(51, 9);
-				PushFollow(Follow._mulExp_in_addExp164);
-				lhs=mulExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, lhs.Tree);
-				DebugLocation(51, 19);
-
-				op=(IToken)input.LT(1);
-				if ((input.LA(1)>=12 && input.LA(1)<=13))
-				{
-					input.Consume();
-					if (state.backtracking == 0) adaptor.AddChild(root_0, (object)adaptor.Create(op));
-					state.errorRecovery=false;state.failed=false;
-				}
-				else
-				{
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					MismatchedSetException mse = new MismatchedSetException(null,input);
-					DebugRecognitionException(mse);
-					throw mse;
-				}
-
-				DebugLocation(51, 35);
-				PushFollow(Follow._addExp_in_addExp178);
-				rhs=addExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, rhs.Tree);
-				DebugLocation(51, 43);
-				if (state.backtracking == 0)
-				{
-					 retval.node = new CalcNode( (op!=null?op.Text:null), (lhs!=null?lhs.node:default(Node)), (rhs!=null?rhs.node:default(Node)) );  
-				}
-
-				}
-				break;
-			case 2:
-				DebugEnterAlt(2);
-				// KnightyCode.g:52:5: mulExp
-				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(52, 5);
-				PushFollow(Follow._mulExp_in_addExp186);
-				mulExp8=mulExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, mulExp8.Tree);
-				DebugLocation(52, 12);
-				if (state.backtracking == 0)
-				{
-					 retval.node = (mulExp8!=null?mulExp8.node:default(Node)); 
-				}
-
-				}
-				break;
-
-			}
-			retval.Stop = (IToken)input.LT(-1);
-
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-			}
-		}
-		catch (RecognitionException re)
-		{
-			ReportError(re);
-			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-		}
-		finally
-		{
-			TraceOut("addExp", 4);
-			LeaveRule("addExp", 4);
-			LeaveRule_addExp();
-		}
-		DebugLocation(53, 2);
-		} finally { DebugExitRule(GrammarFileName, "addExp"); }
-		return retval;
-
-	}
-	// $ANTLR end "addExp"
-
-	private sealed partial class mulExp_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public mulExp_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
-
-	partial void EnterRule_mulExp();
-	partial void LeaveRule_mulExp();
-	// $ANTLR start "mulExp"
-	// KnightyCode.g:55:1: mulExp returns [Node node] : (lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp | unaryExp );
-	[GrammarRule("mulExp")]
-	private KnightyCodeParser.mulExp_return mulExp()
-	{
-		EnterRule_mulExp();
-		EnterRule("mulExp", 5);
-		TraceIn("mulExp", 5);
-		KnightyCodeParser.mulExp_return retval = new KnightyCodeParser.mulExp_return(this);
-		retval.Start = (IToken)input.LT(1);
-
-		object root_0 = default(object);
-
-		IToken op = default(IToken);
-		KnightyCodeParser.unaryExp_return lhs = default(KnightyCodeParser.unaryExp_return);
-		KnightyCodeParser.mulExp_return rhs = default(KnightyCodeParser.mulExp_return);
-		KnightyCodeParser.unaryExp_return unaryExp9 = default(KnightyCodeParser.unaryExp_return);
-
-		object op_tree = default(object);
-		try { DebugEnterRule(GrammarFileName, "mulExp");
-		DebugLocation(55, 2);
-		try
-		{
-			// KnightyCode.g:56:3: (lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp | unaryExp )
-			int alt3=2;
-			try { DebugEnterDecision(3, false);
-			int LA3_1 = input.LA(1);
-
-			if ((LA3_1==Number))
-			{
-				int LA3_2 = input.LA(2);
-
-				if ((EvaluatePredicate(synpred5_KnightyCode_fragment)))
-				{
-					alt3 = 1;
-				}
-				else if ((true))
-				{
-					alt3 = 2;
-				}
-				else
-				{
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					NoViableAltException nvae = new NoViableAltException("", 3, 1, input, 2);
-					DebugRecognitionException(nvae);
-					throw nvae;
-				}
-			}
-			else if ((LA3_1==9))
-			{
-				int LA3_2 = input.LA(2);
-
-				if ((EvaluatePredicate(synpred5_KnightyCode_fragment)))
-				{
-					alt3 = 1;
-				}
-				else if ((true))
-				{
-					alt3 = 2;
-				}
-				else
-				{
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					NoViableAltException nvae = new NoViableAltException("", 3, 2, input, 2);
-					DebugRecognitionException(nvae);
-					throw nvae;
-				}
-			}
-			else
-			{
-				if (state.backtracking>0) {state.failed=true; return retval;}
-				NoViableAltException nvae = new NoViableAltException("", 3, 0, input, 1);
-				DebugRecognitionException(nvae);
-				throw nvae;
-			}
-			} finally { DebugExitDecision(3); }
-			switch (alt3)
-			{
-			case 1:
-				DebugEnterAlt(1);
-				// KnightyCode.g:56:6: lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp
-				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(56, 9);
-				PushFollow(Follow._unaryExp_in_mulExp208);
-				lhs=unaryExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, lhs.Tree);
-				DebugLocation(56, 21);
-
-				op=(IToken)input.LT(1);
-				if (input.LA(1)==11||input.LA(1)==14)
-				{
-					input.Consume();
-					if (state.backtracking == 0) adaptor.AddChild(root_0, (object)adaptor.Create(op));
-					state.errorRecovery=false;state.failed=false;
-				}
-				else
-				{
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					MismatchedSetException mse = new MismatchedSetException(null,input);
-					DebugRecognitionException(mse);
-					throw mse;
-				}
-
-				DebugLocation(56, 37);
-				PushFollow(Follow._mulExp_in_mulExp222);
-				rhs=mulExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, rhs.Tree);
-				DebugLocation(56, 45);
-				if (state.backtracking == 0)
-				{
-					 retval.node = new CalcNode( (op!=null?op.Text:null), (lhs!=null?lhs.node:default(Node)), (rhs!=null?rhs.node:default(Node)) );  
-				}
-
-				}
-				break;
-			case 2:
-				DebugEnterAlt(2);
-				// KnightyCode.g:57:5: unaryExp
-				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(57, 5);
-				PushFollow(Follow._unaryExp_in_mulExp230);
-				unaryExp9=unaryExp();
-				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, unaryExp9.Tree);
-				DebugLocation(57, 14);
-				if (state.backtracking == 0)
-				{
-					 retval.node = (unaryExp9!=null?unaryExp9.node:default(Node)); 
-				}
-
-				}
-				break;
-
-			}
-			retval.Stop = (IToken)input.LT(-1);
-
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-			}
-		}
-		catch (RecognitionException re)
-		{
-			ReportError(re);
-			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-		}
-		finally
-		{
-			TraceOut("mulExp", 5);
-			LeaveRule("mulExp", 5);
-			LeaveRule_mulExp();
-		}
-		DebugLocation(58, 2);
-		} finally { DebugExitRule(GrammarFileName, "mulExp"); }
-		return retval;
-
-	}
-	// $ANTLR end "mulExp"
-
-	private sealed partial class unaryExp_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public unaryExp_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
-
-	partial void EnterRule_unaryExp();
-	partial void LeaveRule_unaryExp();
-	// $ANTLR start "unaryExp"
-	// KnightyCode.g:60:1: unaryExp returns [Node node] : literal ;
-	[GrammarRule("unaryExp")]
-	private KnightyCodeParser.unaryExp_return unaryExp()
-	{
-		EnterRule_unaryExp();
-		EnterRule("unaryExp", 6);
-		TraceIn("unaryExp", 6);
-		KnightyCodeParser.unaryExp_return retval = new KnightyCodeParser.unaryExp_return(this);
-		retval.Start = (IToken)input.LT(1);
-
-		object root_0 = default(object);
-
-		KnightyCodeParser.literal_return literal10 = default(KnightyCodeParser.literal_return);
-
-		try { DebugEnterRule(GrammarFileName, "unaryExp");
-		DebugLocation(60, 2);
-		try
-		{
-			// KnightyCode.g:61:3: ( literal )
-			DebugEnterAlt(1);
-			// KnightyCode.g:61:6: literal
-			{
-			root_0 = (object)adaptor.Nil();
-
-			DebugLocation(61, 6);
-			PushFollow(Follow._literal_in_unaryExp250);
-			literal10=literal();
-			PopFollow();
-			if (state.failed) return retval;
-			if (state.backtracking == 0) adaptor.AddChild(root_0, literal10.Tree);
-			DebugLocation(61, 14);
-			if (state.backtracking == 0)
-			{
-				 retval.node = new NumberNode( (literal10!=null?input.ToString(literal10.Start,literal10.Stop):null) ); 
-			}
-
-			}
-
-			retval.Stop = (IToken)input.LT(-1);
-
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-			}
-		}
-		catch (RecognitionException re)
-		{
-			ReportError(re);
-			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-		}
-		finally
-		{
-			TraceOut("unaryExp", 6);
-			LeaveRule("unaryExp", 6);
-			LeaveRule_unaryExp();
-		}
-		DebugLocation(62, 2);
-		} finally { DebugExitRule(GrammarFileName, "unaryExp"); }
-		return retval;
-
-	}
-	// $ANTLR end "unaryExp"
-
-	private sealed partial class literal_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public literal_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
-
-	partial void EnterRule_literal();
-	partial void LeaveRule_literal();
-	// $ANTLR start "literal"
-	// KnightyCode.g:64:1: literal returns [Node node] : ( number | '(' exp ')' );
-	[GrammarRule("literal")]
-	private KnightyCodeParser.literal_return literal()
-	{
-		EnterRule_literal();
-		EnterRule("literal", 7);
-		TraceIn("literal", 7);
-		KnightyCodeParser.literal_return retval = new KnightyCodeParser.literal_return(this);
-		retval.Start = (IToken)input.LT(1);
-
-		object root_0 = default(object);
-
-		IToken char_literal12 = default(IToken);
-		IToken char_literal14 = default(IToken);
-		KnightyCodeParser.number_return number11 = default(KnightyCodeParser.number_return);
-		KnightyCodeParser.exp_return exp13 = default(KnightyCodeParser.exp_return);
-
-		object char_literal12_tree = default(object);
-		object char_literal14_tree = default(object);
-		try { DebugEnterRule(GrammarFileName, "literal");
-		DebugLocation(64, 2);
-		try
-		{
-			// KnightyCode.g:65:3: ( number | '(' exp ')' )
+			// KnightyCode.g:44:2: ( Print Space addExp | addExp )
 			int alt4=2;
 			try { DebugEnterDecision(4, false);
 			int LA4_1 = input.LA(1);
 
-			if ((LA4_1==Number))
+			if ((LA4_1==Print))
 			{
 				alt4 = 1;
 			}
-			else if ((LA4_1==9))
+			else if (((LA4_1>=If && LA4_1<=Number)||(LA4_1>=While && LA4_1<=12)))
 			{
 				alt4 = 2;
 			}
 			else
 			{
-				if (state.backtracking>0) {state.failed=true; return retval;}
+				if (state.backtracking>0) {state.failed=true; return node;}
 				NoViableAltException nvae = new NoViableAltException("", 4, 0, input, 1);
 				DebugRecognitionException(nvae);
 				throw nvae;
@@ -893,71 +466,654 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// KnightyCode.g:65:6: number
+				// KnightyCode.g:44:4: Print Space addExp
 				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(65, 6);
-				PushFollow(Follow._number_in_literal270);
-				number11=number();
+				DebugLocation(44, 4);
+				Match(input,Print,Follow._Print_in_printExp162); if (state.failed) return node;
+				DebugLocation(44, 10);
+				Match(input,Space,Follow._Space_in_printExp164); if (state.failed) return node;
+				DebugLocation(44, 16);
+				PushFollow(Follow._addExp_in_printExp166);
+				addExp3=addExp();
 				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, number11.Tree);
-				DebugLocation(65, 13);
+				if (state.failed) return node;
+				DebugLocation(44, 23);
 				if (state.backtracking == 0)
 				{
-					 retval.node = (number11!=null?number11.node:default(Node)); 
+					 node = new PrintNode( addExp3 ); 
 				}
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// KnightyCode.g:66:6: '(' exp ')'
+				// KnightyCode.g:45:4: addExp
 				{
-				root_0 = (object)adaptor.Nil();
-
-				DebugLocation(66, 6);
-				char_literal12=(IToken)Match(input,9,Follow._9_in_literal279); if (state.failed) return retval;
-				if (state.backtracking == 0) {
-				char_literal12_tree = (object)adaptor.Create(char_literal12);
-				adaptor.AddChild(root_0, char_literal12_tree);
-				}
-				DebugLocation(66, 10);
-				PushFollow(Follow._exp_in_literal281);
-				exp13=exp();
+				DebugLocation(45, 4);
+				PushFollow(Follow._addExp_in_printExp173);
+				addExp4=addExp();
 				PopFollow();
-				if (state.failed) return retval;
-				if (state.backtracking == 0) adaptor.AddChild(root_0, exp13.Tree);
-				DebugLocation(66, 14);
-				char_literal14=(IToken)Match(input,10,Follow._10_in_literal283); if (state.failed) return retval;
-				if (state.backtracking == 0) {
-				char_literal14_tree = (object)adaptor.Create(char_literal14);
-				adaptor.AddChild(root_0, char_literal14_tree);
-				}
-				DebugLocation(66, 18);
+				if (state.failed) return node;
+				DebugLocation(45, 11);
 				if (state.backtracking == 0)
 				{
-					 retval.node = (exp13!=null?exp13.node:default(Node)); 
+					 node = addExp4; 
 				}
 
 				}
 				break;
 
 			}
-			retval.Stop = (IToken)input.LT(-1);
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
+		}
+		finally
+		{
+			TraceOut("printExp", 3);
+			LeaveRule("printExp", 3);
+			LeaveRule_printExp();
+		}
+		DebugLocation(46, 1);
+		} finally { DebugExitRule(GrammarFileName, "printExp"); }
+		return node;
 
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+	}
+	// $ANTLR end "printExp"
+
+	partial void EnterRule_addExp();
+	partial void LeaveRule_addExp();
+	// $ANTLR start "addExp"
+	// KnightyCode.g:48:1: addExp returns [Node node] : (lhs= mulExp op= ( '+' | '-' ) rhs= addExp | mulExp );
+	[GrammarRule("addExp")]
+	private Node addExp()
+	{
+		EnterRule_addExp();
+		EnterRule("addExp", 4);
+		TraceIn("addExp", 4);
+		Node node = default(Node);
+
+
+		IToken op = default(IToken);
+		Node lhs = default(Node);
+		Node rhs = default(Node);
+		Node mulExp5 = default(Node);
+
+		try { DebugEnterRule(GrammarFileName, "addExp");
+		DebugLocation(48, 2);
+		try
+		{
+			// KnightyCode.g:49:3: (lhs= mulExp op= ( '+' | '-' ) rhs= addExp | mulExp )
+			int alt5=2;
+			try { DebugEnterDecision(5, false);
+			switch (input.LA(1))
+			{
+			case Number:
+				{
+				int LA5_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred6_KnightyCode_fragment)))
+				{
+					alt5 = 1;
+				}
+				else if ((true))
+				{
+					alt5 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 5, 1, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case If:
+				{
+				int LA5_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred6_KnightyCode_fragment)))
+				{
+					alt5 = 1;
+				}
+				else if ((true))
+				{
+					alt5 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 5, 2, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case While:
+				{
+				int LA5_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred6_KnightyCode_fragment)))
+				{
+					alt5 = 1;
+				}
+				else if ((true))
+				{
+					alt5 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 5, 3, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case 12:
+				{
+				int LA5_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred6_KnightyCode_fragment)))
+				{
+					alt5 = 1;
+				}
+				else if ((true))
+				{
+					alt5 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 5, 4, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			default:
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 5, 0, input, 1);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+			}
+
+			} finally { DebugExitDecision(5); }
+			switch (alt5)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// KnightyCode.g:49:6: lhs= mulExp op= ( '+' | '-' ) rhs= addExp
+				{
+				DebugLocation(49, 9);
+				PushFollow(Follow._mulExp_in_addExp194);
+				lhs=mulExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(49, 19);
+
+				op=(IToken)input.LT(1);
+				if ((input.LA(1)>=15 && input.LA(1)<=16))
+				{
+					input.Consume();
+					state.errorRecovery=false;state.failed=false;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					MismatchedSetException mse = new MismatchedSetException(null,input);
+					DebugRecognitionException(mse);
+					throw mse;
+				}
+
+				DebugLocation(49, 35);
+				PushFollow(Follow._addExp_in_addExp208);
+				rhs=addExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(49, 43);
+				if (state.backtracking == 0)
+				{
+					 node = new CalcNode( (op!=null?op.Text:null), lhs, rhs );  
+				}
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// KnightyCode.g:50:5: mulExp
+				{
+				DebugLocation(50, 5);
+				PushFollow(Follow._mulExp_in_addExp216);
+				mulExp5=mulExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(50, 12);
+				if (state.backtracking == 0)
+				{
+					 node = mulExp5; 
+				}
+
+				}
+				break;
+
 			}
 		}
 		catch (RecognitionException re)
 		{
 			ReportError(re);
 			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+		}
+		finally
+		{
+			TraceOut("addExp", 4);
+			LeaveRule("addExp", 4);
+			LeaveRule_addExp();
+		}
+		DebugLocation(51, 2);
+		} finally { DebugExitRule(GrammarFileName, "addExp"); }
+		return node;
 
+	}
+	// $ANTLR end "addExp"
+
+	partial void EnterRule_mulExp();
+	partial void LeaveRule_mulExp();
+	// $ANTLR start "mulExp"
+	// KnightyCode.g:53:1: mulExp returns [Node node] : (lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp | unaryExp );
+	[GrammarRule("mulExp")]
+	private Node mulExp()
+	{
+		EnterRule_mulExp();
+		EnterRule("mulExp", 5);
+		TraceIn("mulExp", 5);
+		Node node = default(Node);
+
+
+		IToken op = default(IToken);
+		Node lhs = default(Node);
+		Node rhs = default(Node);
+		Node unaryExp6 = default(Node);
+
+		try { DebugEnterRule(GrammarFileName, "mulExp");
+		DebugLocation(53, 2);
+		try
+		{
+			// KnightyCode.g:54:3: (lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp | unaryExp )
+			int alt6=2;
+			try { DebugEnterDecision(6, false);
+			switch (input.LA(1))
+			{
+			case Number:
+				{
+				int LA6_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred8_KnightyCode_fragment)))
+				{
+					alt6 = 1;
+				}
+				else if ((true))
+				{
+					alt6 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 6, 1, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case If:
+				{
+				int LA6_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred8_KnightyCode_fragment)))
+				{
+					alt6 = 1;
+				}
+				else if ((true))
+				{
+					alt6 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 6, 2, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case While:
+				{
+				int LA6_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred8_KnightyCode_fragment)))
+				{
+					alt6 = 1;
+				}
+				else if ((true))
+				{
+					alt6 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 6, 3, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			case 12:
+				{
+				int LA6_2 = input.LA(2);
+
+				if ((EvaluatePredicate(synpred8_KnightyCode_fragment)))
+				{
+					alt6 = 1;
+				}
+				else if ((true))
+				{
+					alt6 = 2;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 6, 4, input, 2);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+				}
+				break;
+			default:
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 6, 0, input, 1);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+			}
+
+			} finally { DebugExitDecision(6); }
+			switch (alt6)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// KnightyCode.g:54:6: lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp
+				{
+				DebugLocation(54, 9);
+				PushFollow(Follow._unaryExp_in_mulExp238);
+				lhs=unaryExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(54, 21);
+
+				op=(IToken)input.LT(1);
+				if (input.LA(1)==14||input.LA(1)==17)
+				{
+					input.Consume();
+					state.errorRecovery=false;state.failed=false;
+				}
+				else
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					MismatchedSetException mse = new MismatchedSetException(null,input);
+					DebugRecognitionException(mse);
+					throw mse;
+				}
+
+				DebugLocation(54, 37);
+				PushFollow(Follow._mulExp_in_mulExp252);
+				rhs=mulExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(54, 45);
+				if (state.backtracking == 0)
+				{
+					 node = new CalcNode( (op!=null?op.Text:null), lhs, rhs );  
+				}
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// KnightyCode.g:55:5: unaryExp
+				{
+				DebugLocation(55, 5);
+				PushFollow(Follow._unaryExp_in_mulExp260);
+				unaryExp6=unaryExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(55, 14);
+				if (state.backtracking == 0)
+				{
+					 node = unaryExp6; 
+				}
+
+				}
+				break;
+
+			}
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
+		}
+		finally
+		{
+			TraceOut("mulExp", 5);
+			LeaveRule("mulExp", 5);
+			LeaveRule_mulExp();
+		}
+		DebugLocation(56, 2);
+		} finally { DebugExitRule(GrammarFileName, "mulExp"); }
+		return node;
+
+	}
+	// $ANTLR end "mulExp"
+
+	partial void EnterRule_unaryExp();
+	partial void LeaveRule_unaryExp();
+	// $ANTLR start "unaryExp"
+	// KnightyCode.g:58:1: unaryExp returns [Node node] : literal ;
+	[GrammarRule("unaryExp")]
+	private Node unaryExp()
+	{
+		EnterRule_unaryExp();
+		EnterRule("unaryExp", 6);
+		TraceIn("unaryExp", 6);
+		Node node = default(Node);
+
+
+		Node literal7 = default(Node);
+
+		try { DebugEnterRule(GrammarFileName, "unaryExp");
+		DebugLocation(58, 2);
+		try
+		{
+			// KnightyCode.g:59:3: ( literal )
+			DebugEnterAlt(1);
+			// KnightyCode.g:59:6: literal
+			{
+			DebugLocation(59, 6);
+			PushFollow(Follow._literal_in_unaryExp280);
+			literal7=literal();
+			PopFollow();
+			if (state.failed) return node;
+			DebugLocation(59, 14);
+			if (state.backtracking == 0)
+			{
+				 node = literal7; 
+			}
+
+			}
+
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
+		}
+		finally
+		{
+			TraceOut("unaryExp", 6);
+			LeaveRule("unaryExp", 6);
+			LeaveRule_unaryExp();
+		}
+		DebugLocation(60, 2);
+		} finally { DebugExitRule(GrammarFileName, "unaryExp"); }
+		return node;
+
+	}
+	// $ANTLR end "unaryExp"
+
+	partial void EnterRule_literal();
+	partial void LeaveRule_literal();
+	// $ANTLR start "literal"
+	// KnightyCode.g:62:1: literal returns [Node node] : ( number | ifExp | whileExp | '(' exp ')' );
+	[GrammarRule("literal")]
+	private Node literal()
+	{
+		EnterRule_literal();
+		EnterRule("literal", 7);
+		TraceIn("literal", 7);
+		Node node = default(Node);
+
+
+		Node number8 = default(Node);
+		IfNode ifExp9 = default(IfNode);
+		WhileNode whileExp10 = default(WhileNode);
+		Node exp11 = default(Node);
+
+		try { DebugEnterRule(GrammarFileName, "literal");
+		DebugLocation(62, 2);
+		try
+		{
+			// KnightyCode.g:63:3: ( number | ifExp | whileExp | '(' exp ')' )
+			int alt7=4;
+			try { DebugEnterDecision(7, false);
+			switch (input.LA(1))
+			{
+			case Number:
+				{
+				alt7 = 1;
+				}
+				break;
+			case If:
+				{
+				alt7 = 2;
+				}
+				break;
+			case While:
+				{
+				alt7 = 3;
+				}
+				break;
+			case 12:
+				{
+				alt7 = 4;
+				}
+				break;
+			default:
+				{
+					if (state.backtracking>0) {state.failed=true; return node;}
+					NoViableAltException nvae = new NoViableAltException("", 7, 0, input, 1);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+			}
+
+			} finally { DebugExitDecision(7); }
+			switch (alt7)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// KnightyCode.g:63:6: number
+				{
+				DebugLocation(63, 6);
+				PushFollow(Follow._number_in_literal300);
+				number8=number();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(63, 13);
+				if (state.backtracking == 0)
+				{
+					 node = number8; 
+				}
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// KnightyCode.g:64:5: ifExp
+				{
+				DebugLocation(64, 5);
+				PushFollow(Follow._ifExp_in_literal308);
+				ifExp9=ifExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(64, 11);
+				if (state.backtracking == 0)
+				{
+					 node = ifExp9; 
+				}
+
+				}
+				break;
+			case 3:
+				DebugEnterAlt(3);
+				// KnightyCode.g:65:5: whileExp
+				{
+				DebugLocation(65, 5);
+				PushFollow(Follow._whileExp_in_literal316);
+				whileExp10=whileExp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(65, 14);
+				if (state.backtracking == 0)
+				{
+					 node = whileExp10; 
+				}
+
+				}
+				break;
+			case 4:
+				DebugEnterAlt(4);
+				// KnightyCode.g:66:6: '(' exp ')'
+				{
+				DebugLocation(66, 6);
+				Match(input,12,Follow._12_in_literal325); if (state.failed) return node;
+				DebugLocation(66, 10);
+				PushFollow(Follow._exp_in_literal327);
+				exp11=exp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(66, 14);
+				Match(input,13,Follow._13_in_literal329); if (state.failed) return node;
+				DebugLocation(66, 18);
+				if (state.backtracking == 0)
+				{
+					 node = exp11; 
+				}
+
+				}
+				break;
+
+			}
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
 		}
 		finally
 		{
@@ -967,36 +1123,26 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 		}
 		DebugLocation(67, 2);
 		} finally { DebugExitRule(GrammarFileName, "literal"); }
-		return retval;
+		return node;
 
 	}
 	// $ANTLR end "literal"
-
-	private sealed partial class number_return : AstParserRuleReturnScope<object, IToken>
-	{
-		public Node node;
-		public number_return(KnightyCodeParser grammar) {OnCreated(grammar);}
-		partial void OnCreated(KnightyCodeParser grammar);
-	}
 
 	partial void EnterRule_number();
 	partial void LeaveRule_number();
 	// $ANTLR start "number"
 	// KnightyCode.g:69:1: number returns [Node node] : Number ;
 	[GrammarRule("number")]
-	private KnightyCodeParser.number_return number()
+	private Node number()
 	{
 		EnterRule_number();
 		EnterRule("number", 8);
 		TraceIn("number", 8);
-		KnightyCodeParser.number_return retval = new KnightyCodeParser.number_return(this);
-		retval.Start = (IToken)input.LT(1);
+		Node node = default(Node);
 
-		object root_0 = default(object);
 
-		IToken Number15 = default(IToken);
+		IToken Number12 = default(IToken);
 
-		object Number15_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "number");
 		DebugLocation(69, 1);
 		try
@@ -1005,35 +1151,21 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 			DebugEnterAlt(1);
 			// KnightyCode.g:70:4: Number
 			{
-			root_0 = (object)adaptor.Nil();
-
 			DebugLocation(70, 4);
-			Number15=(IToken)Match(input,Number,Follow._Number_in_number301); if (state.failed) return retval;
-			if (state.backtracking == 0) {
-			Number15_tree = (object)adaptor.Create(Number15);
-			adaptor.AddChild(root_0, Number15_tree);
-			}
+			Number12=(IToken)Match(input,Number,Follow._Number_in_number347); if (state.failed) return node;
 			DebugLocation(71, 2);
 			if (state.backtracking == 0)
 			{
-				 retval.node = new NumberNode( (Number15!=null?Number15.Text:null) ); 
+				 node = new NumberNode( (Number12!=null?Number12.Text:null) ); 
 			}
 
 			}
 
-			retval.Stop = (IToken)input.LT(-1);
-
-			if (state.backtracking == 0) {
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-			}
 		}
 		catch (RecognitionException re)
 		{
 			ReportError(re);
 			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
 		}
 		finally
 		{
@@ -1043,39 +1175,258 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 		}
 		DebugLocation(72, 1);
 		} finally { DebugExitRule(GrammarFileName, "number"); }
-		return retval;
+		return node;
 
 	}
 	// $ANTLR end "number"
 
-	partial void EnterRule_synpred3_KnightyCode_fragment();
-	partial void LeaveRule_synpred3_KnightyCode_fragment();
-
-	// $ANTLR start synpred3_KnightyCode
-	public void synpred3_KnightyCode_fragment()
+	partial void EnterRule_ifExp();
+	partial void LeaveRule_ifExp();
+	// $ANTLR start "ifExp"
+	// KnightyCode.g:78:1: ifExp returns [IfNode node] : If con= exp '{' true_body= exp '}' ( Else '{' false_body= exp '}' )? ;
+	[GrammarRule("ifExp")]
+	private IfNode ifExp()
 	{
-		IToken op = default(IToken);
-		KnightyCodeParser.mulExp_return lhs = default(KnightyCodeParser.mulExp_return);
-		KnightyCodeParser.addExp_return rhs = default(KnightyCodeParser.addExp_return);
+		EnterRule_ifExp();
+		EnterRule("ifExp", 9);
+		TraceIn("ifExp", 9);
+		IfNode node = default(IfNode);
 
-		EnterRule_synpred3_KnightyCode_fragment();
-		EnterRule("synpred3_KnightyCode_fragment", 11);
-		TraceIn("synpred3_KnightyCode_fragment", 11);
+
+		Node con = default(Node);
+		Node true_body = default(Node);
+		Node false_body = default(Node);
+
+		try { DebugEnterRule(GrammarFileName, "ifExp");
+		DebugLocation(78, 1);
 		try
 		{
-			// KnightyCode.g:51:6: (lhs= mulExp op= ( '+' | '-' ) rhs= addExp )
+			// KnightyCode.g:79:2: ( If con= exp '{' true_body= exp '}' ( Else '{' false_body= exp '}' )? )
 			DebugEnterAlt(1);
-			// KnightyCode.g:51:6: lhs= mulExp op= ( '+' | '-' ) rhs= addExp
+			// KnightyCode.g:79:4: If con= exp '{' true_body= exp '}' ( Else '{' false_body= exp '}' )?
 			{
-			DebugLocation(51, 9);
-			PushFollow(Follow._mulExp_in_synpred3_KnightyCode164);
+			DebugLocation(79, 4);
+			Match(input,If,Follow._If_in_ifExp371); if (state.failed) return node;
+			DebugLocation(79, 10);
+			PushFollow(Follow._exp_in_ifExp375);
+			con=exp();
+			PopFollow();
+			if (state.failed) return node;
+			DebugLocation(79, 15);
+			if (state.backtracking == 0)
+			{
+				 node = new IfNode( con ); 
+			}
+			DebugLocation(80, 2);
+			Match(input,19,Follow._19_in_ifExp380); if (state.failed) return node;
+			DebugLocation(80, 15);
+			PushFollow(Follow._exp_in_ifExp384);
+			true_body=exp();
+			PopFollow();
+			if (state.failed) return node;
+			DebugLocation(80, 20);
+			Match(input,20,Follow._20_in_ifExp386); if (state.failed) return node;
+			DebugLocation(80, 24);
+			if (state.backtracking == 0)
+			{
+				 node.True = true_body; 
+			}
+			DebugLocation(81, 2);
+			// KnightyCode.g:81:2: ( Else '{' false_body= exp '}' )?
+			int alt8=2;
+			try { DebugEnterSubRule(8);
+			try { DebugEnterDecision(8, false);
+			int LA8_1 = input.LA(1);
+
+			if ((LA8_1==Else))
+			{
+				alt8 = 1;
+			}
+			} finally { DebugExitDecision(8); }
+			switch (alt8)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// KnightyCode.g:81:4: Else '{' false_body= exp '}'
+				{
+				DebugLocation(81, 4);
+				Match(input,Else,Follow._Else_in_ifExp393); if (state.failed) return node;
+				DebugLocation(81, 9);
+				Match(input,19,Follow._19_in_ifExp395); if (state.failed) return node;
+				DebugLocation(81, 23);
+				PushFollow(Follow._exp_in_ifExp399);
+				false_body=exp();
+				PopFollow();
+				if (state.failed) return node;
+				DebugLocation(81, 28);
+				Match(input,20,Follow._20_in_ifExp401); if (state.failed) return node;
+				DebugLocation(81, 32);
+				if (state.backtracking == 0)
+				{
+					 node.False = false_body; 
+				}
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(8); }
+
+
+			}
+
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
+		}
+		finally
+		{
+			TraceOut("ifExp", 9);
+			LeaveRule("ifExp", 9);
+			LeaveRule_ifExp();
+		}
+		DebugLocation(82, 1);
+		} finally { DebugExitRule(GrammarFileName, "ifExp"); }
+		return node;
+
+	}
+	// $ANTLR end "ifExp"
+
+	partial void EnterRule_whileExp();
+	partial void LeaveRule_whileExp();
+	// $ANTLR start "whileExp"
+	// KnightyCode.g:84:1: whileExp returns [WhileNode node] : While con= exp '{' body= exp '}' ;
+	[GrammarRule("whileExp")]
+	private WhileNode whileExp()
+	{
+		EnterRule_whileExp();
+		EnterRule("whileExp", 10);
+		TraceIn("whileExp", 10);
+		WhileNode node = default(WhileNode);
+
+
+		Node con = default(Node);
+		Node body = default(Node);
+
+		try { DebugEnterRule(GrammarFileName, "whileExp");
+		DebugLocation(84, 1);
+		try
+		{
+			// KnightyCode.g:85:2: ( While con= exp '{' body= exp '}' )
+			DebugEnterAlt(1);
+			// KnightyCode.g:85:4: While con= exp '{' body= exp '}'
+			{
+			DebugLocation(85, 4);
+			Match(input,While,Follow._While_in_whileExp421); if (state.failed) return node;
+			DebugLocation(85, 13);
+			PushFollow(Follow._exp_in_whileExp425);
+			con=exp();
+			PopFollow();
+			if (state.failed) return node;
+			DebugLocation(85, 18);
+			if (state.backtracking == 0)
+			{
+				 node = new WhileNode( con ); 
+			}
+			DebugLocation(86, 2);
+			Match(input,19,Follow._19_in_whileExp430); if (state.failed) return node;
+			DebugLocation(86, 10);
+			PushFollow(Follow._exp_in_whileExp434);
+			body=exp();
+			PopFollow();
+			if (state.failed) return node;
+			DebugLocation(86, 15);
+			Match(input,20,Follow._20_in_whileExp436); if (state.failed) return node;
+			DebugLocation(86, 19);
+			if (state.backtracking == 0)
+			{
+				 node.Body = body; 
+			}
+
+			}
+
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
+		}
+		finally
+		{
+			TraceOut("whileExp", 10);
+			LeaveRule("whileExp", 10);
+			LeaveRule_whileExp();
+		}
+		DebugLocation(87, 1);
+		} finally { DebugExitRule(GrammarFileName, "whileExp"); }
+		return node;
+
+	}
+	// $ANTLR end "whileExp"
+
+	partial void EnterRule_synpred1_KnightyCode_fragment();
+	partial void LeaveRule_synpred1_KnightyCode_fragment();
+
+	// $ANTLR start synpred1_KnightyCode
+	public void synpred1_KnightyCode_fragment()
+	{
+		EnterRule_synpred1_KnightyCode_fragment();
+		EnterRule("synpred1_KnightyCode_fragment", 11);
+		TraceIn("synpred1_KnightyCode_fragment", 11);
+		try
+		{
+			// KnightyCode.g:37:3: ( printExp )
+			DebugEnterAlt(1);
+			// KnightyCode.g:37:3: printExp
+			{
+			DebugLocation(37, 3);
+			PushFollow(Follow._printExp_in_synpred1_KnightyCode110);
+			printExp();
+			PopFollow();
+			if (state.failed) return;
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("synpred1_KnightyCode_fragment", 11);
+			LeaveRule("synpred1_KnightyCode_fragment", 11);
+			LeaveRule_synpred1_KnightyCode_fragment();
+		}
+	}
+	// $ANTLR end synpred1_KnightyCode
+
+	partial void EnterRule_synpred6_KnightyCode_fragment();
+	partial void LeaveRule_synpred6_KnightyCode_fragment();
+
+	// $ANTLR start synpred6_KnightyCode
+	public void synpred6_KnightyCode_fragment()
+	{
+		IToken op = default(IToken);
+		Node lhs = default(Node);
+		Node rhs = default(Node);
+
+		EnterRule_synpred6_KnightyCode_fragment();
+		EnterRule("synpred6_KnightyCode_fragment", 16);
+		TraceIn("synpred6_KnightyCode_fragment", 16);
+		try
+		{
+			// KnightyCode.g:49:6: (lhs= mulExp op= ( '+' | '-' ) rhs= addExp )
+			DebugEnterAlt(1);
+			// KnightyCode.g:49:6: lhs= mulExp op= ( '+' | '-' ) rhs= addExp
+			{
+			DebugLocation(49, 9);
+			PushFollow(Follow._mulExp_in_synpred6_KnightyCode194);
 			lhs=mulExp();
 			PopFollow();
 			if (state.failed) return;
-			DebugLocation(51, 19);
+			DebugLocation(49, 19);
 
 			op=(IToken)input.LT(1);
-			if ((input.LA(1)>=12 && input.LA(1)<=13))
+			if ((input.LA(1)>=15 && input.LA(1)<=16))
 			{
 				input.Consume();
 				state.errorRecovery=false;state.failed=false;
@@ -1088,8 +1439,8 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 				throw mse;
 			}
 
-			DebugLocation(51, 35);
-			PushFollow(Follow._addExp_in_synpred3_KnightyCode178);
+			DebugLocation(49, 35);
+			PushFollow(Follow._addExp_in_synpred6_KnightyCode208);
 			rhs=addExp();
 			PopFollow();
 			if (state.failed) return;
@@ -1099,41 +1450,41 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("synpred3_KnightyCode_fragment", 11);
-			LeaveRule("synpred3_KnightyCode_fragment", 11);
-			LeaveRule_synpred3_KnightyCode_fragment();
+			TraceOut("synpred6_KnightyCode_fragment", 16);
+			LeaveRule("synpred6_KnightyCode_fragment", 16);
+			LeaveRule_synpred6_KnightyCode_fragment();
 		}
 	}
-	// $ANTLR end synpred3_KnightyCode
+	// $ANTLR end synpred6_KnightyCode
 
-	partial void EnterRule_synpred5_KnightyCode_fragment();
-	partial void LeaveRule_synpred5_KnightyCode_fragment();
+	partial void EnterRule_synpred8_KnightyCode_fragment();
+	partial void LeaveRule_synpred8_KnightyCode_fragment();
 
-	// $ANTLR start synpred5_KnightyCode
-	public void synpred5_KnightyCode_fragment()
+	// $ANTLR start synpred8_KnightyCode
+	public void synpred8_KnightyCode_fragment()
 	{
 		IToken op = default(IToken);
-		KnightyCodeParser.unaryExp_return lhs = default(KnightyCodeParser.unaryExp_return);
-		KnightyCodeParser.mulExp_return rhs = default(KnightyCodeParser.mulExp_return);
+		Node lhs = default(Node);
+		Node rhs = default(Node);
 
-		EnterRule_synpred5_KnightyCode_fragment();
-		EnterRule("synpred5_KnightyCode_fragment", 13);
-		TraceIn("synpred5_KnightyCode_fragment", 13);
+		EnterRule_synpred8_KnightyCode_fragment();
+		EnterRule("synpred8_KnightyCode_fragment", 18);
+		TraceIn("synpred8_KnightyCode_fragment", 18);
 		try
 		{
-			// KnightyCode.g:56:6: (lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp )
+			// KnightyCode.g:54:6: (lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp )
 			DebugEnterAlt(1);
-			// KnightyCode.g:56:6: lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp
+			// KnightyCode.g:54:6: lhs= unaryExp op= ( '*' | '/' ) rhs= mulExp
 			{
-			DebugLocation(56, 9);
-			PushFollow(Follow._unaryExp_in_synpred5_KnightyCode208);
+			DebugLocation(54, 9);
+			PushFollow(Follow._unaryExp_in_synpred8_KnightyCode238);
 			lhs=unaryExp();
 			PopFollow();
 			if (state.failed) return;
-			DebugLocation(56, 21);
+			DebugLocation(54, 21);
 
 			op=(IToken)input.LT(1);
-			if (input.LA(1)==11||input.LA(1)==14)
+			if (input.LA(1)==14||input.LA(1)==17)
 			{
 				input.Consume();
 				state.errorRecovery=false;state.failed=false;
@@ -1146,8 +1497,8 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 				throw mse;
 			}
 
-			DebugLocation(56, 37);
-			PushFollow(Follow._mulExp_in_synpred5_KnightyCode222);
+			DebugLocation(54, 37);
+			PushFollow(Follow._mulExp_in_synpred8_KnightyCode252);
 			rhs=mulExp();
 			PopFollow();
 			if (state.failed) return;
@@ -1157,12 +1508,12 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("synpred5_KnightyCode_fragment", 13);
-			LeaveRule("synpred5_KnightyCode_fragment", 13);
-			LeaveRule_synpred5_KnightyCode_fragment();
+			TraceOut("synpred8_KnightyCode_fragment", 18);
+			LeaveRule("synpred8_KnightyCode_fragment", 18);
+			LeaveRule_synpred8_KnightyCode_fragment();
 		}
 	}
-	// $ANTLR end synpred5_KnightyCode
+	// $ANTLR end synpred8_KnightyCode
 	#endregion Rules
 
 	#region Synpreds
@@ -1193,33 +1544,55 @@ public partial class KnightyCodeParser : Antlr.Runtime.Parser
 	#region Follow sets
 	private static class Follow
 	{
-		public static readonly BitSet _exp_in_parse92 = new BitSet(new ulong[]{0x0UL});
-		public static readonly BitSet _EOF_in_parse94 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _printExp_in_exp114 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _Print_in_printExp132 = new BitSet(new ulong[]{0x80UL});
-		public static readonly BitSet _Space_in_printExp134 = new BitSet(new ulong[]{0x210UL});
-		public static readonly BitSet _addExp_in_printExp136 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _addExp_in_printExp143 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mulExp_in_addExp164 = new BitSet(new ulong[]{0x3000UL});
-		public static readonly BitSet _set_in_addExp168 = new BitSet(new ulong[]{0x210UL});
-		public static readonly BitSet _addExp_in_addExp178 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mulExp_in_addExp186 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _unaryExp_in_mulExp208 = new BitSet(new ulong[]{0x4800UL});
-		public static readonly BitSet _set_in_mulExp212 = new BitSet(new ulong[]{0x210UL});
-		public static readonly BitSet _mulExp_in_mulExp222 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _unaryExp_in_mulExp230 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _literal_in_unaryExp250 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _number_in_literal270 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _9_in_literal279 = new BitSet(new ulong[]{0x230UL});
-		public static readonly BitSet _exp_in_literal281 = new BitSet(new ulong[]{0x400UL});
-		public static readonly BitSet _10_in_literal283 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _Number_in_number301 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mulExp_in_synpred3_KnightyCode164 = new BitSet(new ulong[]{0x3000UL});
-		public static readonly BitSet _set_in_synpred3_KnightyCode168 = new BitSet(new ulong[]{0x210UL});
-		public static readonly BitSet _addExp_in_synpred3_KnightyCode178 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _unaryExp_in_synpred5_KnightyCode208 = new BitSet(new ulong[]{0x4800UL});
-		public static readonly BitSet _set_in_synpred5_KnightyCode212 = new BitSet(new ulong[]{0x210UL});
-		public static readonly BitSet _mulExp_in_synpred5_KnightyCode222 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _exp_in_parse84 = new BitSet(new ulong[]{0x0UL});
+		public static readonly BitSet _EOF_in_parse86 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _printExp_in_exp110 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _printExp_in_exp123 = new BitSet(new ulong[]{0x40000UL});
+		public static readonly BitSet _18_in_exp127 = new BitSet(new ulong[]{0x1AE2UL});
+		public static readonly BitSet _Space_in_exp129 = new BitSet(new ulong[]{0x18E2UL});
+		public static readonly BitSet _printExp_in_exp138 = new BitSet(new ulong[]{0x40000UL});
+		public static readonly BitSet _18_in_exp142 = new BitSet(new ulong[]{0x18E2UL});
+		public static readonly BitSet _Print_in_printExp162 = new BitSet(new ulong[]{0x200UL});
+		public static readonly BitSet _Space_in_printExp164 = new BitSet(new ulong[]{0x1860UL});
+		public static readonly BitSet _addExp_in_printExp166 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _addExp_in_printExp173 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mulExp_in_addExp194 = new BitSet(new ulong[]{0x18000UL});
+		public static readonly BitSet _set_in_addExp198 = new BitSet(new ulong[]{0x1860UL});
+		public static readonly BitSet _addExp_in_addExp208 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mulExp_in_addExp216 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _unaryExp_in_mulExp238 = new BitSet(new ulong[]{0x24000UL});
+		public static readonly BitSet _set_in_mulExp242 = new BitSet(new ulong[]{0x1860UL});
+		public static readonly BitSet _mulExp_in_mulExp252 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _unaryExp_in_mulExp260 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _literal_in_unaryExp280 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _number_in_literal300 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ifExp_in_literal308 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _whileExp_in_literal316 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _12_in_literal325 = new BitSet(new ulong[]{0x18E0UL});
+		public static readonly BitSet _exp_in_literal327 = new BitSet(new ulong[]{0x2000UL});
+		public static readonly BitSet _13_in_literal329 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _Number_in_number347 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _If_in_ifExp371 = new BitSet(new ulong[]{0x18E0UL});
+		public static readonly BitSet _exp_in_ifExp375 = new BitSet(new ulong[]{0x80000UL});
+		public static readonly BitSet _19_in_ifExp380 = new BitSet(new ulong[]{0x18E0UL});
+		public static readonly BitSet _exp_in_ifExp384 = new BitSet(new ulong[]{0x100000UL});
+		public static readonly BitSet _20_in_ifExp386 = new BitSet(new ulong[]{0x12UL});
+		public static readonly BitSet _Else_in_ifExp393 = new BitSet(new ulong[]{0x80000UL});
+		public static readonly BitSet _19_in_ifExp395 = new BitSet(new ulong[]{0x18E0UL});
+		public static readonly BitSet _exp_in_ifExp399 = new BitSet(new ulong[]{0x100000UL});
+		public static readonly BitSet _20_in_ifExp401 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _While_in_whileExp421 = new BitSet(new ulong[]{0x18E0UL});
+		public static readonly BitSet _exp_in_whileExp425 = new BitSet(new ulong[]{0x80000UL});
+		public static readonly BitSet _19_in_whileExp430 = new BitSet(new ulong[]{0x18E0UL});
+		public static readonly BitSet _exp_in_whileExp434 = new BitSet(new ulong[]{0x100000UL});
+		public static readonly BitSet _20_in_whileExp436 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _printExp_in_synpred1_KnightyCode110 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mulExp_in_synpred6_KnightyCode194 = new BitSet(new ulong[]{0x18000UL});
+		public static readonly BitSet _set_in_synpred6_KnightyCode198 = new BitSet(new ulong[]{0x1860UL});
+		public static readonly BitSet _addExp_in_synpred6_KnightyCode208 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _unaryExp_in_synpred8_KnightyCode238 = new BitSet(new ulong[]{0x24000UL});
+		public static readonly BitSet _set_in_synpred8_KnightyCode242 = new BitSet(new ulong[]{0x1860UL});
+		public static readonly BitSet _mulExp_in_synpred8_KnightyCode252 = new BitSet(new ulong[]{0x2UL});
 	}
 	#endregion Follow sets
 }

@@ -16,10 +16,10 @@ namespace KnightyCode
 		
 		public override KnightyCodeObject Evaluate( Context context )
 		{
-			Console.Write( mValue.Evaluate( context ).Value.ToString( ) );
+			context.Print( mValue.Evaluate( context ).Value.ToString( ) );
 
 			KnightyCodeObject obj = new KnightyCodeObject( );
-			obj.Value = true;
+			obj.AsBool = true;
 
 			return obj;
 		}
