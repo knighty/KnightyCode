@@ -20,9 +20,9 @@ namespace KnightyCode
 			return mValue.ToString( );
 		}
 
-		public Double AsDouble
+		public double AsDouble
 		{
-			get { return (Double)mValue; }
+			get { return (double)mValue; }
 		}
 	}
 }

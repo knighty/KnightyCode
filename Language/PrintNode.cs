@@ -7,17 +7,16 @@ namespace KnightyCode
 {
 	class PrintNode : Node
 	{
-		KnightyCodeObject mValue;
+		Node mValue;
 
-		public PrintNode( string val ) : base( )
+		public PrintNode( Node node ) : base( )
 		{
-			mValue = new KnightyCodeObject( );
-			mValue.Value = val;
+			mValue = node;
 		}
 		
 		public override KnightyCodeObject Evaluate( Context context )
 		{
-			Console.Write( mValue.Value );
+			Console.Write( mValue.Evaluate( context ).Value.ToString( ) );
 
 			KnightyCodeObject obj = new KnightyCodeObject( );
 			obj.Value = true;

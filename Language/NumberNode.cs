@@ -12,7 +12,9 @@ namespace KnightyCode
 		public NumberNode( string val ) : base( )
 		{
 			mValue = new KnightyCodeObject( );
-			mValue.Value = val;
+			double r;
+			double.TryParse( val, out r );
+			mValue.Value = r;
 		}
 		
 		public override KnightyCodeObject Evaluate( Context context )

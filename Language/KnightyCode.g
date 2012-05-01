@@ -3,6 +3,7 @@ grammar KnightyCode;
 options {
     language=CSharp3;
 	output = AST;
+	backtrack=true;
 }
  
 tokens {
@@ -26,41 +27,43 @@ using System;
         KnightyCodeParser parser = new KnightyCodeParser(tokens);
  
         try {
-            parser.parse();
+            parser.parse().node.Evaluate( null );
         } catch (RecognitionException e)  {
             Console.Error.WriteLine(e.StackTrace);
         }
 	}
 }
  
-parse
-  :  exp EOF -> ^(ROOT exp)
+parse returns [Node node]
+  :  exp EOF { $node = $exp.node; }
   ;
 
 exp returns [Node node]
-  :  addExp { $node = $addExp.node; }
-  ;
-
-addExp returns [Node node]
-  :  lhs=mulExp operator=('+' | '-') rhs=mulExp { $node = new CalcNode( $operator.text, $lhs.node, $rhs.node );  }
-  ;
-
-mulExp returns [Node node]
-  :  lhs=unaryExp operator=('+' | '-') rhs=unaryExp { $node = new CalcNode( $operator.text, $lhs.text, $rhs.text );  }
-  ;
-
-unaryExp
-  :  '-' literal -> ^(UNARY_MIN literal)
-  |  literal
+  :  printExp { $node = $printExp.node; }
   ;
 
 printExp returns [Node node]
-	: Print number { new PrintNode( $number.node ); }
+	: Print Space addExp { $node = new PrintNode( $addExp.node ); }
+	| addExp { $node = $addExp.node; }
 	;
+
+addExp returns [Node node]
+  :  lhs=mulExp op=('+' | '-') rhs=addExp { $node = new CalcNode( $op.text, $lhs.node, $rhs.node );  }
+  | mulExp { $node = $mulExp.node; }
+  ;
+
+mulExp returns [Node node]
+  :  lhs=unaryExp op=('*' | '/') rhs=mulExp { $node = new CalcNode( $op.text, $lhs.node, $rhs.node );  }
+  | unaryExp { $node = $unaryExp.node; }
+  ;
+
+unaryExp returns [Node node]
+  :  literal { $node = new NumberNode( $literal.text ); }
+  ;
 
 literal returns [Node node]
   :  number { $node = $number.node; }
-  |  '(' exp ')' -> exp { $node = $exp.node; }
+  |  '(' exp ')' { $node = $exp.node; }
   ;
 
 number returns [Node node]
@@ -81,5 +84,5 @@ Space
   ;
 
 Print
-: ('print') Number
+: ('print')
 ;
